@@ -1,2 +1,2 @@
-# Sword - health
+# Sword Health
 S Health
