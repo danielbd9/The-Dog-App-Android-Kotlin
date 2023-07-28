@@ -12,4 +12,3 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
     id 'com.android.dynamic-feature' version '7.4.2' apply false
 }
-
