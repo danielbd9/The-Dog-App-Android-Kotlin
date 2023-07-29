@@ -41,6 +41,8 @@ android {
 dependencies {
     implementation project(":features:dog")
 
+    implementation "com.airbnb.android:lottie:4.2.0"
+
     implementation "com.google.dagger:hilt-android:2.47"
     kapt "com.google.dagger:hilt-android-compiler:2.47"
 
