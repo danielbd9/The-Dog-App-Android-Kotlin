@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class BreedsUseCase @Inject constructor(private val dogRepository: DogRepository) {
 
-    suspend fun getDogs(): List<Breeds> {
-        return dogRepository.getDogs()
+    suspend fun getDogs(page: Int): List<Breeds> {
+        return dogRepository.getDogs(page)
     }
 }

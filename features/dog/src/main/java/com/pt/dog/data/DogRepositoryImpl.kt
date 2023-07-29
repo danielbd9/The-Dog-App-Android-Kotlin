@@ -7,7 +7,7 @@ import javax.inject.Inject
 class DogRepositoryImpl @Inject constructor(dogApiService: DogApiService) :
     DogRepository(dogApiService) {
 
-    override suspend fun getDogs(): List<Breeds> {
-        return  dogApiService.getDogs()
+    override suspend fun getDogs(page: Int): List<Breeds> {
+        return  dogApiService.getDogs(page)
     }
 }

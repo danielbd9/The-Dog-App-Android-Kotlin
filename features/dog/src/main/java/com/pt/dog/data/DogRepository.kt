@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 
 open class DogRepository @Inject constructor(val dogApiService: DogApiService) {
-    open suspend fun getDogs(): List<Breeds> {
-        return dogApiService.getDogs()
+    open suspend fun getDogs(page: Int): List<Breeds> {
+        return dogApiService.getDogs(page)
     }
 }
 

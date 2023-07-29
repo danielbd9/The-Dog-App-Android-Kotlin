@@ -19,11 +19,11 @@ class BreedsViewModel @Inject constructor(private val dogUseCase: BreedsUseCase)
     private val _breedsErrorLiveData: MutableLiveData<String> = MutableLiveData()
     val breedsErrorLiveData: LiveData<String> get() = _breedsErrorLiveData
 
-    fun fetchBreeds() {
+    fun fetchBreeds(page: Int) {
         viewModelScope.launch {
             try {
-                val dogs = dogUseCase.getDogs()
-                _breedsLiveData.value = dogs
+                val dogs = dogUseCase.getDogs(page)
+                _breedsLiveData.value = dogs.sortedBy { p->p.name }
             } catch (e: Exception) {
                 _breedsErrorLiveData.value = e.message
             }
