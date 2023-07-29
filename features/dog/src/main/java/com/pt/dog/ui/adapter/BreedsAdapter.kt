@@ -1,14 +1,16 @@
 package com.pt.dog.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pt.dog.databinding.ItemBreedsBinding
 import com.pt.dog.model.Breeds
 
-class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
+class BreedsAdapter(private val loadMoreItems: () -> Unit) : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
 
-    var listBreeds = mutableListOf<Breeds>()
+    private var listBreeds = mutableListOf<Breeds>()
+    private var isLoadingMoreItems = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -19,19 +21,24 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = listBreeds[position]
         holder.bind(item)
+
+        if (position == itemCount - 1 && itemCount < listBreeds.size) {
+            isLoadingMoreItems = true
+            loadMoreItems()
+        }
     }
 
     override fun getItemCount(): Int {
         return listBreeds.size
     }
 
-    fun addList(breeds: List<Breeds>){
-        this.listBreeds.addAll(breeds)
+    fun addBreeds(newBreeds: List<Breeds>) {
+        listBreeds.addAll(newBreeds)
+        changeDataSet()
     }
 
-    fun changeOptionsGrid(){
-        notifyDataSetChanged()
-    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun changeDataSet() = notifyDataSetChanged()
 
     inner class ItemViewHolder(private val binding: ItemBreedsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {

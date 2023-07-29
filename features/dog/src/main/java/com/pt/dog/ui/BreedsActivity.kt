@@ -22,6 +22,8 @@ class BreedsActivity : AppCompatActivity() {
     private lateinit var adapter: BreedsAdapter
     private var layoutManager: RecyclerView.LayoutManager = listLayoutManager
 
+    private var isLoadingMoreItems = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,8 +37,8 @@ class BreedsActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.breedsLiveData.observe(this) { dogsList ->
-            adapter.addList(dogsList)
-            onToggleLayoutClick()
+            adapter.addBreeds(dogsList)
+            isLoadingMoreItems = false
         }
 
         viewModel.breedsErrorLiveData.observe(this) {
@@ -50,12 +52,34 @@ class BreedsActivity : AppCompatActivity() {
         binding.btnToggle.setOnClickListener {
             onToggleLayoutClick()
         }
+
+        binding.rvBreeds.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val lastVisibleItemPosition = when (layoutManager) {
+                    is LinearLayoutManager -> (layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+                    is GridLayoutManager -> (layoutManager as GridLayoutManager).findLastVisibleItemPosition()
+                    else -> RecyclerView.NO_POSITION
+                }
+
+                val totalItemCount = layoutManager.itemCount
+                if (!isLoadingMoreItems && lastVisibleItemPosition == totalItemCount - 1) {
+                    isLoadingMoreItems = true
+                    viewModel.loadMoreBreeds()
+                }
+            }
+        })
     }
 
     private fun setupAdapter() {
-        adapter = BreedsAdapter()
+        adapter = BreedsAdapter(::loadMoreItems)
         binding.rvBreeds.adapter = adapter
         binding.rvBreeds.layoutManager = listLayoutManager
+    }
+
+    private fun loadMoreItems() {
+        viewModel.loadMoreBreeds()
     }
 
     private fun onToggleLayoutClick() {
@@ -65,6 +89,6 @@ class BreedsActivity : AppCompatActivity() {
             listLayoutManager
         }
         binding.rvBreeds.layoutManager = layoutManager
-        adapter.changeOptionsGrid()
+        adapter.changeDataSet()
     }
 }

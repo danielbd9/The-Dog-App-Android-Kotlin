@@ -19,6 +19,8 @@ class BreedsViewModel @Inject constructor(private val dogUseCase: BreedsUseCase)
     private val _breedsErrorLiveData: MutableLiveData<String> = MutableLiveData()
     val breedsErrorLiveData: LiveData<String> get() = _breedsErrorLiveData
 
+    private var currentPage = 0
+
     fun fetchBreeds(page: Int) {
         viewModelScope.launch {
             try {
@@ -28,5 +30,10 @@ class BreedsViewModel @Inject constructor(private val dogUseCase: BreedsUseCase)
                 _breedsErrorLiveData.value = e.message
             }
         }
+    }
+
+    fun loadMoreBreeds() {
+        currentPage++
+        fetchBreeds(currentPage)
     }
 }
