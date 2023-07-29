@@ -38,6 +38,7 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
         changeDataSet()
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun changeDataSet() = notifyDataSetChanged()
 

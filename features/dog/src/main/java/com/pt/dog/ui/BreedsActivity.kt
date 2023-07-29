@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,14 +55,12 @@ class BreedsActivity : AppCompatActivity() {
     private fun setupView() {
         animation(R.drawable.animation_list, binding.ivLoading)
 
-        viewModel.fetchBreeds(page = 0)
-
-        binding.btnToggle.setOnClickListener {
-            onToggleLayoutClick()
+        binding.ivGrid.setOnClickListener {
+            changeLayoutView()
         }
 
         binding.tvGrid.setOnClickListener {
-            onToggleLayoutClick()
+            changeLayoutView()
         }
 
         binding.rvBreeds.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -77,8 +76,9 @@ class BreedsActivity : AppCompatActivity() {
                 val totalItemCount = layoutManager.itemCount
                 if (!isLoadingMoreItems && lastVisibleItemPosition == totalItemCount - 1) {
                     isLoadingMoreItems = true
-                    binding.llLoading.visibility = View.VISIBLE
                     viewModel.loadMoreBreeds()
+                    binding.llLoading.visibility = View.VISIBLE
+
                 }
             }
         })
@@ -98,11 +98,15 @@ class BreedsActivity : AppCompatActivity() {
         binding.rvBreeds.layoutManager = listLayoutManager
     }
 
-    private fun onToggleLayoutClick() {
-        layoutManager = if (layoutManager == listLayoutManager) {
-            gridLayoutManager
+    private fun changeLayoutView() {
+        if (layoutManager == listLayoutManager) {
+            layoutManager = gridLayoutManager
+            binding.tvGrid.text = "List View"
+            binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_list))
         } else {
-            listLayoutManager
+            layoutManager = listLayoutManager
+            binding.tvGrid.text = "Grid View"
+            binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_grid))
         }
         binding.rvBreeds.layoutManager = layoutManager
         adapter.changeDataSet()

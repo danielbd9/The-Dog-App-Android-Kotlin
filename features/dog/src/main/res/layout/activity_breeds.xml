@@ -16,39 +16,57 @@
         app:titleTextColor="@color/white"
         android:gravity="center"
         app:titleMarginStart="160dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/ll_options"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="right"
-        app:layout_constraintEnd_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+    <include
+        android:id="@+id/i_search"
+        layout="@layout/item_breeds_search"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="56dp" />
 
-        <ImageView
-            android:id="@+id/btn_toggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:srcCompat="@drawable/icon_grid"
-            app:tint="@color/orange" />
+    <ImageView
+        android:id="@+id/iv_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_search"
+        app:srcCompat="@drawable/icon_grid"
+        app:tint="@color/orange" />
 
-        <TextView
-            android:id="@+id/tv_grid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="8dp"
-            android:text="Grid View"
-            android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/tv_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Grid View"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_grid"
+        app:layout_constraintStart_toEndOf="@+id/iv_grid"
+        app:layout_constraintTop_toTopOf="@+id/iv_grid" />
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_order"
+        app:layout_constraintEnd_toStartOf="@+id/tv_order"
+        app:layout_constraintTop_toTopOf="@+id/tv_order"
+        app:srcCompat="@drawable/icon_sort"
+        app:tint="@color/orange" />
+
+    <TextView
+        android:id="@+id/tv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="Sort by"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_search" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -61,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_options" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_order" />
 
     <LinearLayout
         android:id="@+id/ll_loading"
