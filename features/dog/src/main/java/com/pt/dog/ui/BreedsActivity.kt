@@ -7,15 +7,21 @@ import com.pt.dog.databinding.ActivityDogBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DogActivity : AppCompatActivity() {
+class BreedsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDogBinding
-    private val viewModel: DogViewModel by viewModels()
+    private val viewModel: BreedsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDogBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupView()
+    }
+
+    private fun setupView() {
+        viewModel.fetchBreeds()
     }
 }

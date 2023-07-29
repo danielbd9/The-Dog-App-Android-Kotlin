@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "sword"
+rootProject.name = "health"
 include ':app'
 include ':network'
 include ':features'
