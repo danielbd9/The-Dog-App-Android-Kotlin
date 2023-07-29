@@ -1,22 +1,20 @@
-package com.pt.dog.ui.adapter
+package com.pt.dog.ui.search.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.pt.dog.databinding.ItemBreedsBinding
+import com.pt.dog.databinding.ItemBreedsSearchBinding
 import com.pt.dog.model.Breeds
 
-class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
+class BreedsSearchAdapter : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHolder>() {
 
     private var listBreeds = mutableListOf<Breeds>()
     private var isLoadingMoreItems = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemBreedsBinding.inflate(inflater, parent, false)
+        val binding = ItemBreedsSearchBinding.inflate(inflater, parent, false)
         return ItemViewHolder(binding)
     }
 
@@ -38,19 +36,12 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
         changeDataSet()
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun changeDataSet() = notifyDataSetChanged()
 
-    inner class ItemViewHolder(private val binding: ItemBreedsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ItemViewHolder(private val binding: ItemBreedsSearchBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {
             binding.tvName.text = item.name
-
-            Glide.with(binding.root.context)
-                .load(item.image.url)
-                .centerCrop()
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(binding.ivDog)
         }
     }
 }

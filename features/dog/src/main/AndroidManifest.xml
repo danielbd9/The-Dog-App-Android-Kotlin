@@ -5,7 +5,12 @@
 
     <application>
         <activity
-            android:name=".ui.BreedsActivity"
+            android:name=".ui.list.BreedsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.search.BreedsSearchActivity"
+            android:exported="false" />
+
     </application>
 </manifest>

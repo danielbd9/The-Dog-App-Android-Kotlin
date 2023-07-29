@@ -3,7 +3,7 @@ package com.pt.health
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pt.dog.ui.BreedsActivity
+import com.pt.dog.ui.list.BreedsActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

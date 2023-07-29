@@ -1,17 +1,18 @@
-package com.pt.dog.ui
+package com.pt.dog.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pt.dog.model.Breeds
-import com.pt.dog.usecase.BreedsUseCase
+import com.pt.dog.usecase.BreedsSearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BreedsViewModel @Inject constructor(private val dogUseCase: BreedsUseCase) : ViewModel() {
+class BreedsSearchViewModel @Inject constructor(private val breedsSearchUseCase: BreedsSearchUseCase)
+    : ViewModel() {
 
     private val _breedsLiveData: MutableLiveData<List<Breeds>> = MutableLiveData()
     val breedsLiveData: LiveData<List<Breeds>> get() = _breedsLiveData
@@ -19,21 +20,10 @@ class BreedsViewModel @Inject constructor(private val dogUseCase: BreedsUseCase)
     private val _breedsErrorLiveData: MutableLiveData<String> = MutableLiveData()
     val breedsErrorLiveData: LiveData<String> get() = _breedsErrorLiveData
 
-    private var currentPage = 0
-
-    init {
-        fetchBreeds(currentPage)
-    }
-
-    fun loadMoreBreeds() {
-        currentPage++
-        fetchBreeds(currentPage)
-    }
-
-    private fun fetchBreeds(page: Int) {
+    fun getSearchBreeds(term: String) {
         viewModelScope.launch {
             try {
-                val dogs = dogUseCase.getDogs(page)
+                val dogs = breedsSearchUseCase.getSearchBreeds(term)
                 _breedsLiveData.value = dogs.sortedBy { p->p.name }
             } catch (e: Exception) {
                 _breedsErrorLiveData.value = e.message
