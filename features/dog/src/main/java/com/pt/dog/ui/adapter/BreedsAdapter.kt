@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pt.dog.databinding.ItemBreedsBinding
 import com.pt.dog.model.Breeds
 
-class BreedsAdapter(private val loadMoreItems: () -> Unit) : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
+class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
 
     private var listBreeds = mutableListOf<Breeds>()
     private var isLoadingMoreItems = false
@@ -24,7 +26,6 @@ class BreedsAdapter(private val loadMoreItems: () -> Unit) : RecyclerView.Adapte
 
         if (position == itemCount - 1 && itemCount < listBreeds.size) {
             isLoadingMoreItems = true
-            loadMoreItems()
         }
     }
 
@@ -43,6 +44,12 @@ class BreedsAdapter(private val loadMoreItems: () -> Unit) : RecyclerView.Adapte
     inner class ItemViewHolder(private val binding: ItemBreedsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {
             binding.tvName.text = item.name
+
+            Glide.with(binding.root.context)
+                .load(item.image.url)
+                .centerCrop()
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(binding.ivDog)
         }
     }
 }

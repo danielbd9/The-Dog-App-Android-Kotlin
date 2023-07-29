@@ -1,11 +1,15 @@
 package com.pt.dog.ui
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pt.dog.R
 import com.pt.dog.databinding.ActivityBreedsBinding
 import com.pt.dog.ui.adapter.BreedsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,6 +42,7 @@ class BreedsActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.breedsLiveData.observe(this) { dogsList ->
             adapter.addBreeds(dogsList)
+            binding.llLoading.visibility = View.GONE
             isLoadingMoreItems = false
         }
 
@@ -47,9 +52,15 @@ class BreedsActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        animation(R.drawable.animation_list, binding.ivLoading)
+
         viewModel.fetchBreeds(page = 0)
 
         binding.btnToggle.setOnClickListener {
+            onToggleLayoutClick()
+        }
+
+        binding.tvGrid.setOnClickListener {
             onToggleLayoutClick()
         }
 
@@ -66,20 +77,25 @@ class BreedsActivity : AppCompatActivity() {
                 val totalItemCount = layoutManager.itemCount
                 if (!isLoadingMoreItems && lastVisibleItemPosition == totalItemCount - 1) {
                     isLoadingMoreItems = true
+                    binding.llLoading.visibility = View.VISIBLE
                     viewModel.loadMoreBreeds()
                 }
             }
         })
     }
 
-    private fun setupAdapter() {
-        adapter = BreedsAdapter(::loadMoreItems)
-        binding.rvBreeds.adapter = adapter
-        binding.rvBreeds.layoutManager = listLayoutManager
+    private fun animation(drawable: Int, imageView: ImageView){
+        imageView.setBackgroundResource(drawable)
+        val animation = imageView.background as AnimationDrawable
+        animation.setEnterFadeDuration(PARAM_FADE)
+        animation.setExitFadeDuration(PARAM_FADE)
+        animation.start()
     }
 
-    private fun loadMoreItems() {
-        viewModel.loadMoreBreeds()
+    private fun setupAdapter() {
+        adapter = BreedsAdapter()
+        binding.rvBreeds.adapter = adapter
+        binding.rvBreeds.layoutManager = listLayoutManager
     }
 
     private fun onToggleLayoutClick() {
@@ -90,5 +106,9 @@ class BreedsActivity : AppCompatActivity() {
         }
         binding.rvBreeds.layoutManager = layoutManager
         adapter.changeDataSet()
+    }
+
+    companion object {
+        private const val PARAM_FADE = 1500
     }
 }
