@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Breeds (
-    val id: Int,
+    val id: Int = 0,
     val name: String?,
     val bred_for: String?,
     val breed_group: String?,

@@ -3,6 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#45C2CC</color>
-    <color name="blue_light">#edffff</color>
+    <color name="blue_light">#e1f2f4</color>
     <color name="orange">#f56362</color>
 </resources>

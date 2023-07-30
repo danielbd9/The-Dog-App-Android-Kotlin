@@ -12,7 +12,7 @@ class BreedsSearchAdapter(
 ) : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHolder>() {
 
     private var listBreeds = mutableListOf<Breeds>()
-    private var isLoadingMoreItems = false
+    private var ascendingOrder = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,10 +23,6 @@ class BreedsSearchAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = listBreeds[position]
         holder.bind(item)
-
-        if (position == itemCount - 1 && itemCount < listBreeds.size) {
-            isLoadingMoreItems = true
-        }
     }
 
     override fun getItemCount(): Int {
@@ -36,7 +32,21 @@ class BreedsSearchAdapter(
     fun addBreeds(newBreeds: List<Breeds>) {
         listBreeds.clear()
         listBreeds.addAll(newBreeds)
+        sortBreeds()
         changeDataSet()
+    }
+
+    fun toggleSortingOrder() {
+        ascendingOrder = !ascendingOrder
+        sortBreeds()
+        changeDataSet()
+    }
+
+    private fun sortBreeds() {
+        listBreeds.sortWith(compareBy { it.name })
+
+        if (!ascendingOrder)
+            listBreeds.reverse()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -49,7 +59,11 @@ class BreedsSearchAdapter(
             binding.tvOrigin.text = item.origin
             binding.tvTemperament.text = item.temperament
 
-            binding.root.setOnClickListener {
+            clickCard(item)
+        }
+
+        private fun clickCard(item: Breeds) {
+            binding.card.setOnClickListener {
                 goToBreedDetail(item)
             }
         }

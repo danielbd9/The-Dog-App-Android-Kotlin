@@ -15,6 +15,7 @@ class BreedsAdapter(
 
     private var listBreeds = mutableListOf<Breeds>()
     private var isLoadingMoreItems = false
+    private var ascendingOrder = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -26,9 +27,9 @@ class BreedsAdapter(
         val item = listBreeds[position]
         holder.bind(item)
 
-        if (position == itemCount - 1 && itemCount < listBreeds.size) {
+        if (position == itemCount - 1 && itemCount < listBreeds.size)
             isLoadingMoreItems = true
-        }
+
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +38,21 @@ class BreedsAdapter(
 
     fun addBreeds(newBreeds: List<Breeds>) {
         listBreeds.addAll(newBreeds)
+        sortBreeds()
         changeDataSet()
+    }
+
+    fun toggleSortingOrder() {
+        ascendingOrder = !ascendingOrder
+        sortBreeds()
+        changeDataSet()
+    }
+
+    private fun sortBreeds() {
+        listBreeds.sortWith(compareBy { it.name })
+
+        if (!ascendingOrder)
+            listBreeds.reverse()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -47,14 +62,20 @@ class BreedsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {
             binding.tvName.text = item.name
+            loadImage(item)
+            clickCard(item)
+        }
 
+        private fun loadImage(item: Breeds) {
             Glide.with(binding.root.context)
                 .load(item.image.url)
                 .centerCrop()
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivDog)
+        }
 
-            binding.root.setOnClickListener {
+        private fun clickCard(item: Breeds) {
+            binding.card.setOnClickListener {
                 goToBreedDetail(item)
             }
         }

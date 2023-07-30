@@ -23,7 +23,6 @@ class BreedsSearchViewModel @Inject constructor(private val breedsSearchUseCase:
     private val _breedsErrorSearchLiveData: MutableLiveData<Unit> = MutableLiveData()
     val breedsErrorSearchLiveData: LiveData<Unit> get() = _breedsErrorSearchLiveData
 
-
     fun getSearchBreeds(term: String) {
         viewModelScope.launch {
             try {

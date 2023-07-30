@@ -43,29 +43,13 @@ class BreedsSearchActivity : AppCompatActivity() {
         setupParams()
     }
 
-    private fun setupObservers() {
-        viewModel.breedsLiveData.observe(this) { dogsList ->
-            adapter.addBreeds(dogsList)
-            binding.rvBreeds.visibility = View.VISIBLE
-            binding.llLoading.visibility = View.GONE
-            binding.ivSearchError.visibility = View.GONE
-            binding.tvSearchError.visibility = View.GONE
-        }
-
-        viewModel.breedsErrorLiveData.observe(this) {
-
-        }
-
-        viewModel.breedsErrorSearchLiveData.observe(this) {
-            binding.rvBreeds.visibility = View.GONE
-            binding.ivSearchError.visibility = View.VISIBLE
-            binding.tvSearchError.visibility = View.VISIBLE
-        }
-    }
-
     private fun setupView() {
         binding.ivGrid.setOnClickListener {
             changeLayoutView()
+        }
+
+        binding.ivOrder.setOnClickListener {
+            adapter.toggleSortingOrder()
         }
 
         binding.iSearch.etSearch.setOnEditorActionListener(
@@ -84,6 +68,26 @@ class BreedsSearchActivity : AppCompatActivity() {
         adapter = BreedsSearchAdapter(::goToBreedDetail)
         binding.rvBreeds.adapter = adapter
         binding.rvBreeds.layoutManager = listLayoutManager
+    }
+
+    private fun setupObservers() {
+        viewModel.breedsLiveData.observe(this) { dogsList ->
+            adapter.addBreeds(dogsList)
+            binding.rvBreeds.visibility = View.VISIBLE
+            binding.llLoading.visibility = View.GONE
+            binding.ivSearchError.visibility = View.GONE
+            binding.tvSearchError.visibility = View.GONE
+        }
+
+        viewModel.breedsErrorLiveData.observe(this) {
+
+        }
+
+        viewModel.breedsErrorSearchLiveData.observe(this) {
+            binding.rvBreeds.visibility = View.GONE
+            binding.ivSearchError.visibility = View.VISIBLE
+            binding.tvSearchError.visibility = View.VISIBLE
+        }
     }
 
     private fun goToBreedDetail(breeds: Breeds) {

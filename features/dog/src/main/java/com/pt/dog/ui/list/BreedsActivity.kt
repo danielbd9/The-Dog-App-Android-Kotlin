@@ -45,23 +45,15 @@ class BreedsActivity : AppCompatActivity() {
         setupObservers()
     }
 
-    private fun setupObservers() {
-        viewModel.breedsLiveData.observe(this) { dogsList ->
-            adapter.addBreeds(dogsList)
-            binding.llLoading.visibility = View.GONE
-            isLoadingMoreItems = false
-        }
-
-        viewModel.breedsErrorLiveData.observe(this) {
-
-        }
-    }
-
     private fun setupView() {
         animation(R.drawable.animation_list, binding.ivLoading)
 
         binding.ivGrid.setOnClickListener {
             changeLayoutView()
+        }
+
+        binding.ivOrder.setOnClickListener {
+            adapter.toggleSortingOrder()
         }
 
         binding.iSearch.etSearch.setOnEditorActionListener(
@@ -96,6 +88,18 @@ class BreedsActivity : AppCompatActivity() {
         adapter = BreedsAdapter(::goToBreedDetail)
         binding.rvBreeds.adapter = adapter
         binding.rvBreeds.layoutManager = listLayoutManager
+    }
+
+    private fun setupObservers() {
+        viewModel.breedsLiveData.observe(this) { dogsList ->
+            adapter.addBreeds(dogsList)
+            binding.llLoading.visibility = View.GONE
+            isLoadingMoreItems = false
+        }
+
+        viewModel.breedsErrorLiveData.observe(this) {
+
+        }
     }
 
     private fun goToBreedDetail(breeds: Breeds) {

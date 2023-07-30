@@ -14,6 +14,7 @@
     <string name="breeds_search_origin">ORIGIN:</string>
     <string name="breeds_search_group">GROUP:</string>
     <string name="breeds_search_name">NAME:</string>
+    <string name="breeds_detail_category">CATEGORY:</string>
 
     <string name="breeds_image_description">image</string>
 
