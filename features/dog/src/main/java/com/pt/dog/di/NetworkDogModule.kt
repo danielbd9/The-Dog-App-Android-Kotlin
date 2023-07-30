@@ -1,6 +1,8 @@
 package com.pt.dog.di
 
-import com.pt.dog.data.service.DogApiService
+import com.pt.dog.data.DogRepository
+import com.pt.dog.data.DogRepositoryImpl
+import com.pt.dog.data.service.IDogService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +16,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideDogApiService(retrofit: Retrofit): DogApiService {
-        return retrofit.create(DogApiService::class.java)
+    fun provideDogApiService(retrofit: Retrofit): IDogService {
+        return retrofit.create(IDogService::class.java)
+    }
+    @Provides
+    fun provideDogRepository(iDogService: IDogService): DogRepository {
+        return DogRepositoryImpl(iDogService)
     }
 }
