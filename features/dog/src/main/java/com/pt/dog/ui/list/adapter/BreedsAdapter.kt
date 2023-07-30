@@ -9,7 +9,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.pt.dog.databinding.ItemBreedsBinding
 import com.pt.dog.model.Breeds
 
-class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
+class BreedsAdapter(
+    private val goToBreedDetail: (breed: Breeds) -> Unit
+) : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
 
     private var listBreeds = mutableListOf<Breeds>()
     private var isLoadingMoreItems = false
@@ -38,11 +40,11 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
         changeDataSet()
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun changeDataSet() = notifyDataSetChanged()
 
-    inner class ItemViewHolder(private val binding: ItemBreedsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ItemViewHolder(private val binding: ItemBreedsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {
             binding.tvName.text = item.name
 
@@ -51,6 +53,10 @@ class BreedsAdapter : RecyclerView.Adapter<BreedsAdapter.ItemViewHolder>() {
                 .centerCrop()
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivDog)
+
+            binding.root.setOnClickListener {
+                goToBreedDetail(item)
+            }
         }
     }
 }

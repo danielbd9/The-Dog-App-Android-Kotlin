@@ -1,5 +1,9 @@
 package com.pt.dog.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Breeds (
     val id: Int,
     val name: String?,
@@ -8,4 +12,4 @@ data class Breeds (
     val origin: String?,
     val temperament: String?,
     val image: BreedsImage
-)
+): Parcelable

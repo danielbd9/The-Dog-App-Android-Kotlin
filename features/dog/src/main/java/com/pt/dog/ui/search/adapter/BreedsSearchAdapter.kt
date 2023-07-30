@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pt.dog.databinding.ItemBreedsSearchBinding
 import com.pt.dog.model.Breeds
 
-class BreedsSearchAdapter : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHolder>() {
+class BreedsSearchAdapter(
+    private val goToBreedDetail: (breed: Breeds) -> Unit
+) : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHolder>() {
 
     private var listBreeds = mutableListOf<Breeds>()
     private var isLoadingMoreItems = false
@@ -46,6 +48,10 @@ class BreedsSearchAdapter : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHol
             binding.tvBredGroup.text = item.breed_group
             binding.tvOrigin.text = item.origin
             binding.tvTemperament.text = item.temperament
+
+            binding.root.setOnClickListener {
+                goToBreedDetail(item)
+            }
         }
     }
 }

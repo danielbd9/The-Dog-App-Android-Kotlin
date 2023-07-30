@@ -6,11 +6,19 @@
     <application>
         <activity
             android:name=".ui.list.BreedsActivity"
+            android:screenOrientation="fullSensor"
             android:exported="false" />
 
         <activity
             android:name=".ui.search.BreedsSearchActivity"
+            android:screenOrientation="fullSensor"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.details.BreedsDetailActivity"
+            android:screenOrientation="fullSensor"
+            android:exported="false"
+            />
 
     </application>
 </manifest>

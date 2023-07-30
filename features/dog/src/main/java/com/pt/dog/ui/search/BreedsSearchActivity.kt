@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pt.dog.R
 import com.pt.dog.databinding.ActivityBreedsSearchBinding
+import com.pt.dog.model.Breeds
+import com.pt.dog.ui.details.BreedsDetailActivity
 import com.pt.dog.ui.search.adapter.BreedsSearchAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -79,9 +81,13 @@ class BreedsSearchActivity : AppCompatActivity() {
     }
 
     private fun setupAdapter() {
-        adapter = BreedsSearchAdapter()
+        adapter = BreedsSearchAdapter(::goToBreedDetail)
         binding.rvBreeds.adapter = adapter
         binding.rvBreeds.layoutManager = listLayoutManager
+    }
+
+    private fun goToBreedDetail(breeds: Breeds) {
+        startActivity(BreedsDetailActivity.newInstance(this, breeds))
     }
 
     private fun setupParams() {
