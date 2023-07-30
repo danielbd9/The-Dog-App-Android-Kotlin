@@ -12,5 +12,6 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, BreedsActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
