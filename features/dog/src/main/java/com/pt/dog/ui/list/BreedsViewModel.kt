@@ -22,7 +22,7 @@ class BreedsViewModel @Inject constructor(private val breedsUseCase: BreedsUseCa
 
     private var currentPage = 0
 
-    init {
+    fun loadBreeds() {
         getBreeds(currentPage)
     }
 
@@ -35,9 +35,10 @@ class BreedsViewModel @Inject constructor(private val breedsUseCase: BreedsUseCa
         viewModelScope.launch {
             try {
                 val dogs = breedsUseCase.getBreeds(page)
-                _breedsLiveData.value = dogs.sortedBy { p->p.name }
+                _breedsLiveData.postValue(dogs.sortedBy { p->p.name })
             } catch (e: Exception) {
-                _breedsErrorLiveData.value = e.message
+                val error = "Network error"
+                _breedsErrorLiveData.value = error
             }
         }
     }

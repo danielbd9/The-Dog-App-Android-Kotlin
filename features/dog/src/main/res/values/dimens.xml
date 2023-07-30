@@ -6,8 +6,6 @@
     <dimen name="spacing_extra_large">32dp</dimen>
     <dimen name="spacing_big">64dp</dimen>
 
-    <dimen name="spacing_toolbar">40dp</dimen>
-    <dimen name="spacing_toolbar_margin">160dp</dimen>
     <dimen name="spacing_loading">80dp</dimen>
     <dimen name="spacing_elevation">4dp</dimen>
 

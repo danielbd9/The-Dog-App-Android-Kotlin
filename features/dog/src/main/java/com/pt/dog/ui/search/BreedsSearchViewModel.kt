@@ -33,7 +33,8 @@ class BreedsSearchViewModel @Inject constructor(private val breedsSearchUseCase:
                 else
                     _breedsLiveData.value = dogs.sortedBy { p -> p.name }
             } catch (e: Exception) {
-                _breedsErrorLiveData.value = e.message
+                val error = "Network error"
+                _breedsErrorLiveData.value = error
             }
         }
     }

@@ -45,7 +45,7 @@ class BreedsDetailActivity : AppCompatActivity() {
             binding.tvBredCategory.text = breed.bred_for
             binding.tvBreedOrigin.text = breed.origin
             binding.tvBreedTemperament.text = breed.temperament
-            loadImage(breed.image.url.orEmpty())
+            loadImage(breed.image?.url.orEmpty())
         }
     }
 

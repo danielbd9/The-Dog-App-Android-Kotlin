@@ -68,7 +68,7 @@ class BreedsAdapter(
 
         private fun loadImage(item: Breeds) {
             Glide.with(binding.root.context)
-                .load(item.image.url)
+                .load(item.image?.url)
                 .centerCrop()
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivDog)

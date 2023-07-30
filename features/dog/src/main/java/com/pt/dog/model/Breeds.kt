@@ -11,5 +11,5 @@ data class Breeds (
     val breed_group: String?,
     val origin: String?,
     val temperament: String?,
-    val image: BreedsImage
+    val image: BreedsImage?
 ): Parcelable

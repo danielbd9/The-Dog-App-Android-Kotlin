@@ -46,6 +46,8 @@ class BreedsActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        viewModel.loadBreeds()
+
         animation(R.drawable.animation_list, binding.ivLoading)
 
         binding.toolbar.setNavigationOnClickListener {
