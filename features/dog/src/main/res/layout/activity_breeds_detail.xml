@@ -5,18 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_toolbar"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/blue"
         android:elevation="@dimen/spacing_elevation"
-        android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Breeds"
-        app:titleMarginStart="@dimen/spacing_toolbar_margin"
-        app:titleTextColor="@color/white" />
+        app:navigationIcon="@drawable/icon_back"
+        app:navigationIconTint="@color/white"
+        app:title="@string/breeds_title"
+        app:titleTextColor="@color/white"
+        app:titleCentered="true" />
 
     <ImageView
         android:id="@+id/iv_breed"

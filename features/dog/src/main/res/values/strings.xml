@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="breeds_greed_view">Grid View</string>
-    <string name="breeds_list_view">List View</string>
-    <string name="breeds_order">Sort by</string>
+
+    <string name="breeds_title">Breeds</string>
 
     <string name="breeds_search_hint">Search</string>
-    <string name="breeds_search_list_view">List View</string>
-    <string name="breeds_search_order">Sort by</string>
     <string name="breeds_search_details">DETAILS</string>
-
 
     <string name="breeds_search_temper">TEMPER.:</string>
     <string name="breeds_search_origin">ORIGIN:</string>

@@ -5,18 +5,20 @@
     android:layout_height="match_parent"
     android:background="@color/blue_light">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_toolbar"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/blue"
         android:elevation="@dimen/spacing_elevation"
-        android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Breeds"
-        app:titleMarginStart="@dimen/spacing_toolbar_margin"
-        app:titleTextColor="@color/white" />
+        app:navigationIcon="@drawable/icon_back"
+        app:navigationIconTint="@color/white"
+        app:title="@string/breeds_title"
+        app:titleTextColor="@color/white"
+        app:titleCentered="true" />
 
     <include
         android:id="@+id/i_search"

@@ -21,7 +21,14 @@ class BreedsDetailActivity : AppCompatActivity() {
         binding = ActivityBreedsDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupView()
         setupParams()
+    }
+
+    private fun setupView() {
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun loadImage(url: String) {

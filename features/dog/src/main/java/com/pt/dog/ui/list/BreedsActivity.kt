@@ -48,6 +48,10 @@ class BreedsActivity : AppCompatActivity() {
     private fun setupView() {
         animation(R.drawable.animation_list, binding.ivLoading)
 
+        binding.toolbar.setNavigationOnClickListener {
+           finish()
+        }
+
         binding.ivGrid.setOnClickListener {
             changeLayoutView()
         }

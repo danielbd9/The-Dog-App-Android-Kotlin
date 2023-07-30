@@ -44,6 +44,10 @@ class BreedsSearchActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+
         binding.ivGrid.setOnClickListener {
             changeLayoutView()
         }
