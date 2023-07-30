@@ -7,79 +7,66 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/spacing_toolbar"
         android:background="@color/blue"
-        android:elevation="4dp"
-        app:title="Breeds"
-        app:titleTextColor="@color/white"
+        android:elevation="@dimen/spacing_elevation"
         android:gravity="center"
-        app:titleMarginStart="160dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Breeds"
+        app:titleMarginStart="@dimen/spacing_toolbar_margin"
+        app:titleTextColor="@color/white" />
 
     <include
         android:id="@+id/i_search"
         layout="@layout/item_search"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/spacing_small"
+        app:layout_constraintEnd_toStartOf="@+id/iv_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ImageView
         android:id="@+id/iv_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/i_search"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:contentDescription="@string/breeds_image_description"
+        app:layout_constraintBottom_toBottomOf="@+id/i_search"
+        app:layout_constraintEnd_toStartOf="@+id/iv_order"
+        app:layout_constraintTop_toTopOf="@+id/i_search"
         app:srcCompat="@drawable/icon_grid"
         app:tint="@color/orange" />
-
-    <TextView
-        android:id="@+id/tv_grid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Grid View"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_grid"
-        app:layout_constraintStart_toEndOf="@+id/iv_grid"
-        app:layout_constraintTop_toTopOf="@+id/iv_grid" />
 
     <ImageView
         android:id="@+id/iv_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_order"
-        app:layout_constraintEnd_toStartOf="@+id/tv_order"
-        app:layout_constraintTop_toTopOf="@+id/tv_order"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:contentDescription="@string/breeds_image_description"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_grid"
         app:srcCompat="@drawable/icon_sort"
         app:tint="@color/orange" />
-
-    <TextView
-        android:id="@+id/tv_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:text="Sort by"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/i_search" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_breeds"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/item_breeds"
-        tools:itemCount="5"
+        android:layout_marginTop="@dimen/spacing_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_order" />
+        app:layout_constraintTop_toBottomOf="@+id/i_search"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_breeds" />
+
 
     <LinearLayout
         android:id="@+id/ll_loading"
@@ -87,19 +74,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:visibility="gone"
-        android:elevation="8dp"
+        android:elevation="@dimen/spacing_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/iv_loading"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/spacing_loading"
+            android:layout_height="@dimen/spacing_loading"
             android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:padding="16dp"
-            android:scaleType="centerInside"/>
+            android:layout_margin="@dimen/spacing_small"
+            android:padding="@dimen/spacing_medium"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/breeds_image_description"/>
 
     </LinearLayout>
 

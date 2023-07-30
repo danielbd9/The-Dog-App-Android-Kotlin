@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
     android:id="@+id/ll_search"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_width="0dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginStart="@dimen/spacing_medium"
+    android:layout_marginEnd="@dimen/spacing_medium"
+    app:boxCornerRadiusBottomEnd="@dimen/spacing_large"
+    app:boxCornerRadiusBottomStart="@dimen/spacing_large"
+    app:boxCornerRadiusTopEnd="@dimen/spacing_large"
+    app:boxCornerRadiusTopStart="@dimen/spacing_large"
+    app:boxStrokeColor="@color/orange"
     app:endIconMode="clear_text"
+    app:hintTextColor="@color/orange"
+    app:layout_constraintTop_toBottomOf="@id/toolbar"
     app:startIconDrawable="@drawable/icon_search"
-    app:boxCornerRadiusBottomEnd="24dp"
-    app:boxCornerRadiusTopEnd="24dp"
-    app:boxCornerRadiusBottomStart="24dp"
-    app:boxCornerRadiusTopStart="24dp"
-    app:startIconTint="@color/orange"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/toolbar">
+    app:startIconTint="@color/orange">
 
 
     <com.google.android.material.textfield.TextInputEditText
@@ -25,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Search"
+        android:hint="@string/breeds_search_hint"
+        android:textColorHint="@color/orange"
         android:imeOptions="actionSearch"/>
 
 

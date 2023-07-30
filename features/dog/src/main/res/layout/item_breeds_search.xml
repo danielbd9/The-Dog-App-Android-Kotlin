@@ -1,44 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_small">
+    android:layout_margin="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/spacing_small"
+    app:cardElevation="@dimen/spacing_elevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_dog"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            app:layout_constraintDimensionRatio="17:15"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_text_container" />
-
-        <LinearLayout
-            android:id="@+id/ll_text_container"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_breeds_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/spacing_medium"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/breeds_search_name"
+            android:textSize="@dimen/font_medium"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/font_medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_breeds_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_breeds_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_breeds_name" />
 
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_bred_group"
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:src="@drawable/paw_loading_1"
+            android:contentDescription="@string/breeds_image_description"
+            app:layout_constraintStart_toStartOf="@+id/tv_breeds_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_breeds_name" />
+
+        <TextView
+            android:id="@+id/tv_bred_group_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/breeds_search_group"
+            android:textSize="@dimen/font_small"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bred_group"
+            app:layout_constraintStart_toEndOf="@+id/iv_bred_group"
+            app:layout_constraintTop_toTopOf="@+id/iv_bred_group" />
+
+        <TextView
+            android:id="@+id/tv_bred_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textSize="@dimen/font_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bred_group_title"
+            app:layout_constraintStart_toEndOf="@+id/tv_bred_group_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_bred_group_title"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_icon_origin"
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:src="@drawable/paw_loading_1"
+            android:contentDescription="@string/breeds_image_description"
+            app:layout_constraintStart_toStartOf="@+id/iv_bred_group"
+            app:layout_constraintTop_toBottomOf="@+id/iv_bred_group" />
+
+        <TextView
+            android:id="@+id/tv_origin_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:text="@string/breeds_search_origin"
+            android:textSize="@dimen/font_small"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_icon_origin"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_origin"
+            app:layout_constraintTop_toTopOf="@id/iv_icon_origin" />
+
+        <TextView
+            android:id="@+id/tv_origin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_origin_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_origin_title" />
+
+        <ImageView
+            android:id="@+id/iv_icon_temperament"
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:src="@drawable/paw_loading_1"
+            android:contentDescription="@string/breeds_image_description"
+            app:layout_constraintStart_toStartOf="@+id/iv_icon_origin"
+            app:layout_constraintTop_toBottomOf="@+id/iv_icon_origin" />
+
+        <TextView
+            android:id="@+id/tv_temperament_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:text="@string/breeds_search_temper"
+            android:textSize="@dimen/font_small"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_icon_temperament"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_temperament"
+            app:layout_constraintTop_toTopOf="@id/iv_icon_temperament" />
+
+        <TextView
+            android:id="@+id/tv_temperament"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textSize="@dimen/font_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_temperament_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_temperament_title" />
+
+        <View
+            android:id="@+id/dashed_line"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/shape_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_icon_temperament" />
+
+        <TextView
+            android:id="@+id/tv_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="@string/breeds_search_details"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dashed_line" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

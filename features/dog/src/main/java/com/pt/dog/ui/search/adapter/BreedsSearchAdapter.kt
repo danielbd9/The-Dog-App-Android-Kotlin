@@ -32,6 +32,7 @@ class BreedsSearchAdapter : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHol
     }
 
     fun addBreeds(newBreeds: List<Breeds>) {
+        listBreeds.clear()
         listBreeds.addAll(newBreeds)
         changeDataSet()
     }
@@ -42,6 +43,9 @@ class BreedsSearchAdapter : RecyclerView.Adapter<BreedsSearchAdapter.ItemViewHol
     inner class ItemViewHolder(private val binding: ItemBreedsSearchBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Breeds) {
             binding.tvName.text = item.name
+            binding.tvBredGroup.text = item.breed_group
+            binding.tvOrigin.text = item.origin
+            binding.tvTemperament.text = item.temperament
         }
     }
 }

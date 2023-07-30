@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="breeds_greed_view">Grid View</string>
+    <string name="breeds_list_view">List View</string>
+    <string name="breeds_order">Sort by</string>
+
+    <string name="breeds_search_hint">Search</string>
+    <string name="breeds_search_list_view">List View</string>
+    <string name="breeds_search_order">Sort by</string>
+    <string name="breeds_search_details">DETAILS</string>
+
+
+    <string name="breeds_search_temper">TEMPER.:</string>
+    <string name="breeds_search_origin">ORIGIN:</string>
+    <string name="breeds_search_group">GROUP:</string>
+    <string name="breeds_search_name">NAME:</string>
+
+    <string name="breeds_image_description">image</string>
+
+    <string name="breeds_search_error">"Oops, it seems we couldn't find information for this dog breed.\n \n Don't worry! \n \n Please try another breed and see if we can find what you're looking for."</string>
+</resources>

@@ -62,10 +62,6 @@ class BreedsActivity : AppCompatActivity() {
             changeLayoutView()
         }
 
-        binding.tvGrid.setOnClickListener {
-            changeLayoutView()
-        }
-
         binding.iSearch.etSearch.setOnEditorActionListener(
             TextView.OnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -120,11 +116,9 @@ class BreedsActivity : AppCompatActivity() {
     private fun changeLayoutView() {
         if (layoutManager == listLayoutManager) {
             layoutManager = gridLayoutManager
-            binding.tvGrid.text = "List View"
             binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_list))
         } else {
             layoutManager = listLayoutManager
-            binding.tvGrid.text = "Grid View"
             binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_grid))
         }
         binding.rvBreeds.layoutManager = layoutManager

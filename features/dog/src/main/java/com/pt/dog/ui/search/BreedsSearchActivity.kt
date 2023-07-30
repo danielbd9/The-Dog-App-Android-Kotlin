@@ -8,9 +8,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.pt.dog.R
 import com.pt.dog.databinding.ActivityBreedsSearchBinding
 import com.pt.dog.ui.search.adapter.BreedsSearchAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,15 +44,28 @@ class BreedsSearchActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.breedsLiveData.observe(this) { dogsList ->
             adapter.addBreeds(dogsList)
+            binding.rvBreeds.visibility = View.VISIBLE
             binding.llLoading.visibility = View.GONE
+            binding.ivSearchError.visibility = View.GONE
+            binding.tvSearchError.visibility = View.GONE
         }
 
         viewModel.breedsErrorLiveData.observe(this) {
 
         }
+
+        viewModel.breedsErrorSearchLiveData.observe(this) {
+            binding.rvBreeds.visibility = View.GONE
+            binding.ivSearchError.visibility = View.VISIBLE
+            binding.tvSearchError.visibility = View.VISIBLE
+        }
     }
 
     private fun setupView() {
+        binding.ivGrid.setOnClickListener {
+            changeLayoutView()
+        }
+
         binding.iSearch.etSearch.setOnEditorActionListener(
             TextView.OnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -74,6 +89,18 @@ class BreedsSearchActivity : AppCompatActivity() {
         binding.iSearch.etSearch.setText(term)
         binding.llLoading.visibility = View.VISIBLE
         viewModel.getSearchBreeds(term)
+    }
+
+    private fun changeLayoutView() {
+        if (layoutManager == listLayoutManager) {
+            layoutManager = gridLayoutManager
+            binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_list))
+        } else {
+            layoutManager = listLayoutManager
+            binding.ivGrid.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.icon_grid))
+        }
+        binding.rvBreeds.layoutManager = layoutManager
+        adapter.changeDataSet()
     }
 
     companion object {
