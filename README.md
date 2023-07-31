@@ -20,12 +20,12 @@ Dog Breed Search: Search for specific dog breeds and view results with relevant 
 
 The app adopts a modular architecture, promoting separation of components for better maintenance and scalability:
 
-App Module: Contains presentation components like Activities, Fragments, and ViewModels for displaying dog breeds and details, and the search feature.
+App Module: Contains presentation components like Activities,and ViewModels for displaying dog breeds and details, and the search feature.
 Domain Module: Handles business logic, including use cases, repositories, and entities.
-Data Module: Manages data access, including communication with the dog breeds API and cache management.
+Data Module: Manages data access, including communication with the dog breeds API.
 API Reference:
 
-The app retrieves dog breed data, including images, from the Dog API. For more details, visit: [https://www.dogapi.com/](https://thedogapi.com/)
+The app retrieves dog breed data, including images, from the Dog API. For more details, visit: https://thedogapi.com/
 
 <b>Future Improvements:</b>
 Potential enhancements include offline functionality, RXJava integration for asynchronous operations, improved UI/UX with interactive elements and smooth animations, optimized pagination, comprehensive and accessibility features for users with disabilities. These improvements will elevate the app's usability and appeal to dog enthusiasts worldwide.
