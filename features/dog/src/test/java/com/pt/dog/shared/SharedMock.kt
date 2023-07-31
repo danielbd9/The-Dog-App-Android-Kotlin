@@ -12,6 +12,7 @@ object SharedMock {
         "BreedGroup",
         "BreedOrigin",
         "BreedTemperament",
+         "ImageId",
         BreedsImage("url")
     )
 }

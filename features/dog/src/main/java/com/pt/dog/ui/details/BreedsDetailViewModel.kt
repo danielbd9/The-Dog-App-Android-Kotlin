@@ -43,7 +43,7 @@ class BreedsDetailViewModel @Inject constructor(
         }
     }
 
-    private fun getBreedsImageById(id: String) {
+    fun getBreedsImageById(id: String) {
         viewModelScope.launch {
             try {
                 val dogs = breedsImageUseCase.getBreedsImageById(id)

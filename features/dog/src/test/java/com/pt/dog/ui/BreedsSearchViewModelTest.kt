@@ -10,7 +10,6 @@ import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
-import io.mockk.spyk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -34,13 +33,14 @@ class BreedsSearchViewModelTest {
     private lateinit var breedsViewModel: BreedsSearchViewModel
 
     private val term = "Buldog"
+    private val networkError = "Network error"
 
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
         Dispatchers.setMain(Dispatchers.Unconfined)
 
-        breedsViewModel = spyk(BreedsSearchViewModel(breedsSearchUseCase))
+        breedsViewModel = BreedsSearchViewModel(breedsSearchUseCase)
     }
 
     @After
@@ -92,9 +92,7 @@ class BreedsSearchViewModelTest {
     @Test
     fun `Given that the user wants to search list the breeds When an error occurred in the search Then it must present an error to the user`() = runBlocking {
         // Given
-        val errorMessage = "Network error"
-
-        coEvery { breedsSearchUseCase.getSearchBreeds(term) } throws Exception(errorMessage)
+        coEvery { breedsSearchUseCase.getSearchBreeds(term) } throws Exception(networkError)
 
         val errorObserver = mockk<Observer<String>>(relaxed = true)
         breedsViewModel.breedsErrorLiveData.observeForever(errorObserver)
@@ -104,7 +102,7 @@ class BreedsSearchViewModelTest {
 
         // Then
         verify {
-            errorObserver.onChanged(errorMessage)
+            errorObserver.onChanged(networkError)
         }
     }
 }
