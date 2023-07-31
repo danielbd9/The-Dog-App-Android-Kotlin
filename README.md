@@ -1,7 +1,6 @@
 ## The Dog App
 
-![Splash](https://github.com/danielbd9/s-health/assets/16392300/4fef1a6c-a44a-4c6a-8125-ff8abbe449ea)  ![Breed list](https://github.com/danielbd9/s-health/assets/16392300/f3868dd8-ba08-40e3-870b-bd81951c6bc0) ![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/c482e49c-a82b-40bc-9cc2-1a359da6c9b0) ![1690808402086](https://github.com/danielbd9/s-health/assets/16392300/9bf42777-3991-4000-b3b6-149f7f3b9724)
-
+![Splash](https://github.com/danielbd9/s-health/assets/16392300/4fef1a6c-a44a-4c6a-8125-ff8abbe449ea)  ![Breed list](https://github.com/danielbd9/s-health/assets/16392300/f3868dd8-ba08-40e3-870b-bd81951c6bc0) ![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/c482e49c-a82b-40bc-9cc2-1a359da6c9b0) ![1690808402086](https://github.com/danielbd9/s-health/assets/16392300/9bf42777-3991-4000-b3b6-149f7f3b9724) ![1690808402086](https://github.com/danielbd9/s-health/assets/16392300/bc65512f-a572-4bd7-89df-4a2f292380dc) ![1690808402074](https://github.com/danielbd9/s-health/assets/16392300/0ad31c07-e823-41d1-b9ea-699226766056)
 
 <b>Resume:</b>
 
