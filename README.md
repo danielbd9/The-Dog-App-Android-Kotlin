@@ -1,12 +1,10 @@
 ## The Dog App
 
-
-![Splash](https://github.com/danielbd9/s-health/assets/16392300/cd430b75-4af6-47ac-909c-9b0230971e78 | width=100)
+![Splash](https://github.com/danielbd9/s-health/assets/16392300/5c9db9e9-5da9-4420-9565-c0353cb1a51a | width=100)
 
 ![Breed list](https://github.com/danielbd9/s-health/assets/16392300/7344eca5-ec07-4fd0-ab27-18e5184b5f01)
 
 ![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/44b3682c-17da-4a89-8267-d261b563aad7)
-
 
 
 Mobile Application - Dog Breeds Viewer
