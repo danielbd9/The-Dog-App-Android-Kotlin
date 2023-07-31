@@ -95,7 +95,7 @@ class BreedsSearchActivity : AppCompatActivity() {
     }
 
     private fun goToBreedDetail(breeds: Breeds) {
-        startActivity(BreedsDetailActivity.newInstance(this, breeds))
+        startActivity(BreedsDetailActivity.newInstance(this, breeds.id))
     }
 
     private fun setupParams() {

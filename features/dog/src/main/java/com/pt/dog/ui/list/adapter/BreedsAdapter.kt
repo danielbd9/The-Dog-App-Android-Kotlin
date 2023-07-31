@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.pt.dog.R
 import com.pt.dog.databinding.ItemBreedsBinding
 import com.pt.dog.model.Breeds
 
@@ -70,6 +71,7 @@ class BreedsAdapter(
             Glide.with(binding.root.context)
                 .load(item.image?.url)
                 .centerCrop()
+                .placeholder(R.drawable.icon_placeholder)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivDog)
         }

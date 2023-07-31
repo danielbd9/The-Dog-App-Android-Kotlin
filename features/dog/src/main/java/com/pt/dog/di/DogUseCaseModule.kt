@@ -1,6 +1,8 @@
 package com.pt.dog.di
 
 import com.pt.dog.data.DogRepository
+import com.pt.dog.usecase.BreedsDetailUseCase
+import com.pt.dog.usecase.BreedsSearchUseCase
 import com.pt.dog.usecase.BreedsUseCase
 import dagger.Module
 import dagger.Provides
@@ -14,7 +16,19 @@ object DogUseCaseModule {
 
     @Provides
     @Singleton
-    fun provideDogUseCase(dogRepository: DogRepository): BreedsUseCase {
+    fun provideListBreedsUseCase(dogRepository: DogRepository): BreedsUseCase {
         return BreedsUseCase(dogRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSearchBreedsUseCase(dogRepository: DogRepository): BreedsSearchUseCase {
+        return BreedsSearchUseCase(dogRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDetailBreedsUseCase(dogRepository: DogRepository): BreedsDetailUseCase {
+        return BreedsDetailUseCase(dogRepository)
     }
 }

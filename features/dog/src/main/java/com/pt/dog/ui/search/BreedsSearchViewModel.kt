@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BreedsSearchViewModel @Inject constructor(private val breedsSearchUseCase: BreedsSearchUseCase) :
-    ViewModel() {
+class BreedsSearchViewModel @Inject constructor(
+    private val breedsSearchUseCase: BreedsSearchUseCase) : ViewModel() {
 
     private val _breedsLiveData: MutableLiveData<List<Breeds>> = MutableLiveData()
     val breedsLiveData: LiveData<List<Breeds>> get() = _breedsLiveData
