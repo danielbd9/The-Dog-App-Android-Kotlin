@@ -2,9 +2,10 @@
 
 ![Splash](https://github.com/danielbd9/s-health/assets/16392300/4fef1a6c-a44a-4c6a-8125-ff8abbe449ea)
 
-![Breed list](https://github.com/danielbd9/s-health/assets/16392300/7344eca5-ec07-4fd0-ab27-18e5184b5f01)
+![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/c482e49c-a82b-40bc-9cc2-1a359da6c9b0)
 
-![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/44b3682c-17da-4a89-8267-d261b563aad7)
+![Breed list](https://github.com/danielbd9/s-health/assets/16392300/f3868dd8-ba08-40e3-870b-bd81951c6bc0)
+
 
 
 Mobile Application - Dog Breeds Viewer
