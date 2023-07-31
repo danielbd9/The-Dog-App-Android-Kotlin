@@ -1,0 +1,51 @@
+ext {
+    versions = [
+            lottie: "6.0.0",
+            okhttp: "4.10.0",
+            loggingInterceptor: "4.10.0",
+            retrofit: "2.9.0",
+            gsonConverter: "2.9.0",
+            hilt: "2.47",
+            coreKtx: "1.10.1",
+            appcompat: "1.6.1",
+            material: "1.9.0",
+            junit: "4.13.2",
+            espresso: "3.5.1",
+            mockk: "1.13.4",
+            coroutines: "1.6.4",
+            constraintLayout: "2.1.4",
+            androidxLifecycleViewModelKtx: "2.6.1",
+            androidxLifecycleLiveDataKtx: "2.6.1",
+            androidxActivityKtx: "1.7.2",
+            androidxFragmentKtx: "1.6.1",
+            androidxArchCoreTesting: "2.2.0",
+            glide: "4.15.1"
+    ]
+}
+
+ext {
+    sharedLibraries = [
+            androidxLifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidxLifecycleViewModelKtx}",
+            androidxLifecycleLiveDataKtx: "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidxLifecycleLiveDataKtx}",
+            androidxActivityKtx: "androidx.activity:activity-ktx:${versions.androidxActivityKtx}",
+            androidxFragmentKtx: "androidx.fragment:fragment-ktx:${versions.androidxFragmentKtx}",
+            androidxArchCoreTesting: "androidx.arch.core:core-testing:${versions.androidxArchCoreTesting}",
+            glide: "com.github.bumptech.glide:glide:${versions.glide}",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+            daggerHilt: "com.google.dagger:hilt-android:${versions.hilt}",
+            lottie: "com.airbnb.android:lottie:${versions.lottie}",
+            okhttp: "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${versions.loggingInterceptor}",
+            retrofit: "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:${versions.gsonConverter}",
+            hiltAndroid: "com.google.dagger:hilt-android:${versions.hilt}",
+            hiltCompilerAndroid: "com.google.dagger:hilt-android-compiler:${versions.hilt}",
+            coreKtx: "androidx.core:core-ktx:${versions.coreKtx}",
+            appcompat: "androidx.appcompat:appcompat:${versions.appcompat}",
+            material: "com.google.android.material:material:${versions.material}",
+            junit: "junit:junit:${versions.junit}",
+            espressoCore: "androidx.test.espresso:espresso-core:${versions.espresso}",
+            mockk: "io.mockk:mockk:${versions.mockk}",
+            coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
+    ]
+}

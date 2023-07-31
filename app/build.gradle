@@ -5,6 +5,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+apply from: rootProject.file('dependencies.gradle')
+
 android {
     namespace 'com.pt.health'
 
@@ -41,16 +43,15 @@ android {
 dependencies {
     implementation project(":features:dog")
 
-    implementation "com.airbnb.android:lottie:4.2.0"
+    implementation sharedLibraries.lottie
+    implementation sharedLibraries.daggerHilt
+    implementation sharedLibraries.coreKtx
+    implementation sharedLibraries.appcompat
+    implementation sharedLibraries.material
+    implementation sharedLibraries.constraintLayout
 
-    implementation "com.google.dagger:hilt-android:2.47"
-    kapt "com.google.dagger:hilt-android-compiler:2.47"
+    kapt sharedLibraries.hiltCompilerAndroid
 
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation sharedLibraries.junit
+    androidTestImplementation sharedLibraries.espressoCore
 }
