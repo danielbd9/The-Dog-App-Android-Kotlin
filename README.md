@@ -28,4 +28,4 @@ API Reference:
 The app retrieves dog breed data, including images, from the Dog API. For more details, visit: https://thedogapi.com/
 
 <b>Future Improvements:</b>
-Potential enhancements include offline functionality, RXJava integration for asynchronous operations, improved UI/UX with interactive elements and smooth animations, optimized pagination, comprehensive and accessibility features for users with disabilities. These improvements will elevate the app's usability and appeal to dog enthusiasts worldwide.
+Potential enhancements include offline functionality, RXJava integration for asynchronous operations, improved UI/UX with interactive elements and smooth animations, comprehensive and accessibility features for users with disabilities. These improvements will elevate the app's usability and appeal to dog enthusiasts worldwide.
