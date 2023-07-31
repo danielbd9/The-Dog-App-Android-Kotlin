@@ -14,5 +14,6 @@
 
     <string name="breeds_image_description">image</string>
 
+    <string name="breeds_error">Oops! Something went wrong. \n \n  Please check your internet connection and try again later.</string>
     <string name="breeds_search_error">"Oops, it seems we couldn't find information for this dog breed.\n \n Don't worry! \n \n Please try another breed and see if we can find what you're looking for."</string>
 </resources>

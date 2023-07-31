@@ -30,7 +30,6 @@ class BreedsAdapter(
 
         if (position == itemCount - 1 && itemCount < listBreeds.size)
             isLoadingMoreItems = true
-
     }
 
     override fun getItemCount(): Int {

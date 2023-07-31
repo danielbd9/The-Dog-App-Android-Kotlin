@@ -70,6 +70,35 @@
         tools:listitem="@layout/item_breeds" />
 
     <ImageView
+        android:id="@+id/iv_error"
+        android:layout_width="@dimen/spacing_width"
+        android:layout_height="@dimen/spacing_width"
+        android:layout_marginTop="@dimen/spacing_big"
+        android:contentDescription="@string/breeds_image_description"
+        android:src="@drawable/icon_error"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_search" />
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_marginStart="@dimen/spacing_medium"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:text="@string/breeds_error"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_large"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/rv_breeds"
+        app:layout_constraintStart_toEndOf="@+id/rv_breeds"
+        app:layout_constraintTop_toBottomOf="@+id/iv_error" />
+
+
+    <ImageView
         android:id="@+id/iv_search_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

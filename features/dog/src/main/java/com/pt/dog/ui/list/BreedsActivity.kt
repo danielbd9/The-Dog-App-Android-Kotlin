@@ -104,7 +104,8 @@ class BreedsActivity : AppCompatActivity() {
         }
 
         viewModel.breedsErrorLiveData.observe(this) {
-
+            binding.ivError.visibility = View.VISIBLE
+            binding.tvError.visibility = View.VISIBLE
         }
     }
 

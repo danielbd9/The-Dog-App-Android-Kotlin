@@ -8,6 +8,7 @@
 
     <dimen name="spacing_loading">80dp</dimen>
     <dimen name="spacing_elevation">4dp</dimen>
+    <dimen name="spacing_width">200dp</dimen>
 
     <dimen name="font_small">16sp</dimen>
     <dimen name="font_medium">18sp</dimen>

@@ -3,6 +3,7 @@ package com.pt.dog.ui.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -41,7 +42,7 @@ class BreedsDetailActivity : AppCompatActivity() {
         }
 
         viewModel.breedsErrorLiveData.observe(this) {
-
+            binding.cardBreed.visibility = View.GONE
         }
     }
 
