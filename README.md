@@ -1,6 +1,5 @@
 ## The Dog App
 
-# Sword Health - challenge
 
 Mobile Application - Dog Breeds Viewer
 This is a mobile application developed in Kotlin that allows users to view information about different dog breeds, including their images, names, breed categories, origins, and temperaments. The application follows the MVVM (Model-View-ViewModel) architecture and utilizes some of the most popular libraries and technologies in the Android ecosystem.
