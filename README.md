@@ -10,7 +10,7 @@
 
 <b>Key Features:</b>
 
-Dog Breeds Listing: View a list or grid of dog breeds with representative images, names, categories, origins, and temperaments. Alphabetical sorting and pagination enhance usability.
+Dog Breeds Listing: View a list or grid of dog breeds with representative images and names. Alphabetical sorting and pagination enhance usability.
 
 Dog Breed Details: Access comprehensive information about specific breeds, including name, category, origin, and temperament.
 
