@@ -25,7 +25,7 @@ Domain Module: Handles business logic, including use cases, repositories, and en
 Data Module: Manages data access, including communication with the dog breeds API and cache management.
 API Reference:
 
-The app retrieves dog breed data, including images, from the Dog API. For more details, visit: https://www.dogapi.com/
+The app retrieves dog breed data, including images, from the Dog API. For more details, visit: [https://www.dogapi.com/](https://thedogapi.com/)
 
 <b>Future Improvements:</b>
 Potential enhancements include offline functionality, RXJava integration for asynchronous operations, improved UI/UX with interactive elements and smooth animations, optimized pagination, comprehensive and accessibility features for users with disabilities. These improvements will elevate the app's usability and appeal to dog enthusiasts worldwide.
