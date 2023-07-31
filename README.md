@@ -1,6 +1,14 @@
 ## The Dog App
 
 
+![Splash](https://github.com/danielbd9/s-health/assets/16392300/cd430b75-4af6-47ac-909c-9b0230971e78)
+
+![Breed list](https://github.com/danielbd9/s-health/assets/16392300/7344eca5-ec07-4fd0-ab27-18e5184b5f01)
+
+![Breed Grid](https://github.com/danielbd9/s-health/assets/16392300/44b3682c-17da-4a89-8267-d261b563aad7)
+
+
+
 Mobile Application - Dog Breeds Viewer
 This is a mobile application developed in Kotlin that allows users to view information about different dog breeds, including their images, names, breed categories, origins, and temperaments. The application follows the MVVM (Model-View-ViewModel) architecture and utilizes some of the most popular libraries and technologies in the Android ecosystem.
 
