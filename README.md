@@ -1,6 +1,6 @@
 ## The Dog App
 
-![Splash](https://github.com/danielbd9/s-health/assets/16392300/5c9db9e9-5da9-4420-9565-c0353cb1a51a | width=100)
+![Splash](https://github.com/danielbd9/s-health/assets/16392300/866d9d5f-6ddf-4d0b-8857-b3953c99e904.png | width=100)
 
 ![Breed list](https://github.com/danielbd9/s-health/assets/16392300/7344eca5-ec07-4fd0-ab27-18e5184b5f01)
 
